@@ -6,7 +6,7 @@ cues=[]  # (file, src_start, src_len or None, film_time, gain, extra filters)
 def cue(f,ss,ln,at,gain,extra=''): cues.append((f,ss,ln,at,gain,extra))
 # narration (vo3, the upbeat short-form voice), one line each
 vo=[(0,2.33,0.9),(2.75,1.66,6.4),(4.82,1.79,10.3),(6.99,1.57,14.6),(8.94,1.89,18.3),(11.22,2.12,23.9),(13.88,1.88,26.9),(16.2,2.4,29.6),(18.82,0.91,32.25),(20.3,0.91,33.9)]
-for ss,ln,at in vo: cue(R+'vo3.mp3',ss,ln,at,1.85,'afade=t=in:d=0.02,afade=t=out:st=%.2f:d=0.04'%(ln-0.04))
+for ss,ln,at in vo: cue(R+'vo3.mp3',ss,ln,at,2.5,'acompressor=threshold=-22dB:ratio=3:attack=5:release=80:makeup=2,afade=t=in:d=0.02,afade=t=out:st=%.2f:d=0.04'%(ln-0.04))
 P=lambda r:'asetrate=44100*%s,aresample=48000'%r
 # shot 1: the first scream, then it carries on quietly under the question
 cue(R+'scream4.mp3',0,0.85,0.08,0.95)
