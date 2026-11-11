@@ -4,9 +4,9 @@ import subprocess, sys
 R='audio/raw/'; D=36.4
 cues=[]  # (file, src_start, src_len or None, film_time, gain, extra filters)
 def cue(f,ss,ln,at,gain,extra=''): cues.append((f,ss,ln,at,gain,extra))
-# narration (vo1), one line each
-vo=[(0,2.66,0.9),(3.08,1.74,6.4),(5.28,2.0,10.3),(7.72,1.65,14.6),(9.79,1.97,18.3),(12.12,2.21,23.9),(14.85,1.98,26.9),(17.26,2.46,29.6),(19.97,1.06,32.25),(21.51,1.24,33.9)]
-for ss,ln,at in vo: cue(R+'vo1.mp3',ss,ln,at,1.85,'afade=t=in:d=0.02,afade=t=out:st=%.2f:d=0.04'%(ln-0.04))
+# narration (vo3, the upbeat short-form voice), one line each
+vo=[(0,2.33,0.9),(2.75,1.66,6.4),(4.82,1.79,10.3),(6.99,1.57,14.6),(8.94,1.89,18.3),(11.22,2.12,23.9),(13.88,1.88,26.9),(16.2,2.4,29.6),(18.82,0.91,32.25),(20.3,0.91,33.9)]
+for ss,ln,at in vo: cue(R+'vo3.mp3',ss,ln,at,1.85,'afade=t=in:d=0.02,afade=t=out:st=%.2f:d=0.04'%(ln-0.04))
 P=lambda r:'asetrate=44100*%s,aresample=48000'%r
 # shot 1: the first scream, then it carries on quietly under the question
 cue(R+'scream4.mp3',0,0.85,0.08,0.95)
